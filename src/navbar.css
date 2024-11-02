@@ -1,52 +1,59 @@
-/* Navbar Container */
+/* Ensure navbar stretches across the full width */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-  }
-  
-  /* Left side of the navbar */
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Dropdown styling */
-  .dropdown {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    color: #333;
-  }
-  
-  /* Search button styling */
-  .search-button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Add Note button styling */
-  .add-button {
-    padding: 8px 12px;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #218838;
-  }
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #342A21; /* Bistre */
+  padding: 10px 20px;
+  color: white;
+  position: relative;
+  top: 0;
+  box-sizing: border-box;
+  margin-top: 0;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+/* Left side of the navbar */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Dropdown styling */
+.dropdown {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+}
+
+/* Search button styling */
+.search-button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Add Note button styling */
+.add-button {
+  padding: 8px 12px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
