@@ -1,18 +1,18 @@
 // Import the required modules
-const express = require('express');
-const mongoose = require('mongoose');
+import express, { json } from 'express';
+import { connect, Schema, model } from 'mongoose';
 
 // Create an instance of an Express app
 const app = express();
 
 // Middleware to parse JSON requests
-app.use(express.json());
+app.use(json());
 
 // MongoDB connection URI (replace with your own URI)
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydatabase';
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(MONGODB_URI, {
+connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -22,7 +22,8 @@ mongoose.connect(MONGODB_URI, {
 // Set a port for the server to listen on
 const PORT = process.env.PORT || 3000;
 
-const fileSchema = new mongoose.Schema({
+const fileSchema = new Schema({
+  },
     name: {
       type: String,
       required: true,
@@ -34,7 +35,6 @@ const fileSchema = new mongoose.Schema({
    
   });
   
-  const File = mongoose.model('File', fileSchema);
 
   app.get('/',(req,res) =>{
     res.render()
@@ -43,7 +43,7 @@ const fileSchema = new mongoose.Schema({
   app.post('/upload', async (req, res) => {
     try {
       // Create a new File instance with data from the request body
-      const newFile = new File({
+      const newFile = new (model('File', fileSchema))({
         name: req.body.name,
         text: req.body.name
       });
@@ -62,3 +62,5 @@ const fileSchema = new mongoose.Schema({
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+    const newFile = new (model('File', fileSchema))({
+
