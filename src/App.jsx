@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Note from "./Note";
 import Upload from "./Upload";
+import Footer from "./footer"
 import "./index.css"
 
 function App() {
+
   console.log("nigga");
   return (
      <Router>
@@ -15,6 +17,7 @@ function App() {
           <Route path="/Note" element={<Note/>} />
           <Route path="/upload" element={<Upload />} />
         </Routes>
+        <Footer />
       </div>
     </Router> );
 }

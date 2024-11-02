@@ -12,6 +12,14 @@ const Option1Component = () => <div>This is Option 1 component.</div>;
 const Option2Component = () => <div>This is Option 2 component.</div>;
 const Option3Component = () => <div>This is Option 3 component.</div>;
 
+const hardcodedNotes = [
+    { id: 1, name: "Linear Algebra" },
+    { id: 2, name: "Physics I" },
+    { id: 3, name: "Chemistry Basics" },
+    { id: 4, name: "Introduction to Programming" },
+    { id: 5, name: "Calculus II" },
+    { id: 6, name: "Psychology 101" }
+  ];
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -41,7 +49,13 @@ function Home() {
           <button className="add-button">Add Note</button>
         </Link>
       </div>
-      <MainNote />
+ <div className="notes-container">
+        {hardcodedNotes.map((note) => (
+          <MainNote
+            name={note.name} // Only passing name as prop
+          />
+        ))}
+      </div>
       <div><Link to="/note">note test</Link></div>
     </div>
   );

@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import './Note.css';
 
 const Note = ({ note }) => {
+  const [upvoted, setUpvoted] = useState(false);
+  const [downvoted, setDownvoted] = useState(false);
+
+  const handleUpvote = () => {
+    setUpvoted(true);
+    setDownvoted(false); // Reset downvote if upvote is selected
+  };
+
+  const handleDownvote = () => {
+    setDownvoted(true);
+    setUpvoted(false); // Reset upvote if downvote is selected
+  };
+
   return (
     <div className="note-page">
       <Header />
       <div className="note-content">
-        {/* User who uploaded the note */}
         <div className="note-user">
           <p>Uploaded by: <strong>Srijan</strong></p>
         </div>
 
-        {/* Note content */}
         <div className="note-text">
           <h2>English 101</h2>
-          <p>1. Parts of Speech
+           <p>1. Parts of Speech
 
 Noun: A person, place, thing, or idea (e.g., dog, happiness).
 Verb: An action or state of being (e.g., run, is).
@@ -70,6 +81,22 @@ Font: Times New Roman, 12 pt.
 Double-Spacing: Entire document should be double-spaced.
 In-Text Citations: Include the author's last name and page number (e.g., (Smith 23)).
 </p>
+        </div>
+
+        {/* Upvote and Downvote Buttons */}
+        <div className="note-feedback">
+          <button
+            className={`feedback-button ${upvoted ? 'upvoted' : ''}`}
+            onClick={handleUpvote}
+          >
+            ⬆️ Upvote
+          </button>
+          <button
+            className={`feedback-button ${downvoted ? 'downvoted' : ''}`}
+            onClick={handleDownvote}
+          >
+            ⬇️ Downvote
+          </button>
         </div>
       </div>
     </div>
